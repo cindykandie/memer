@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="assets/wind.svg" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <h1>MemeGod</h1>
+
+        <section class="header-section">
+            <h3 id="headerText">Welcome to this Statement meme site</h3>
+            <button id="themeButton">
+                <img id="themeIcon" src="assets/sun.svg" alt="" srcset="">
+            </button>
+        </section>
+
+        <section>
+            <h3>Add your meme statement here. Click Done to dowload!</h3>
+        </section>
+        <section class="input-field">
+            <textarea id="memeTextarea" cols="30" rows="8" placeholder="Type here.."></textarea> <br/>
+            <button id="doneButton">Done</button>
+        </section>
+    </main>
+    
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modalText"></p>
+            <div class="meme-btns">
+                <button id="downloadButton" onclick="downloadModalImage()">Download</button>
+                <button id="backButton">Back</button>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
