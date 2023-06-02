@@ -109,3 +109,45 @@ button:hover{
     border-radius: 5px;
     outline: none;
 }
+
+
+.footer {
+    background-color: rgb(95, 220, 241);
+    padding: 20px;
+    text-align: center;
+    color: black;
+    margin: 0;
+}
+.footer .port-link{
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+}
+.footer .port-link:hover{
+    text-decoration: underline;
+}
+.footer ul {
+    list-style-type: none;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer ul li {
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.footer ul li:hover {
+    background-color: azure;
+}
+.footer ul li:last-child {
+    margin-right: 0;
+}
+
+.footer ul li img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}

@@ -14,12 +14,13 @@ You can check out the live demo of Memer [here](https://example.com). 🎈
 
 ## Screenshots 📷
 
-![Screenshot 1](screenshots/screenshot1.png)
-![Screenshot 2](screenshots/screenshot2.png)
+![Edit](assets/screenshot1.png)
+![View](assets/screenshot2.png)
+![Dowload on your machine](assets/screenshot3.png)
 
 ## Installation ⚙️
 
-1. Clone the repository: `git clone https://github.com/your-username/memer.git`
+1. Clone the repository: `git clone https://github.com/cindykandie/memer`
 2. Navigate to the project directory: `cd memer`
 3. Open `index.html` in your favorite web browser.
 
@@ -39,16 +40,14 @@ This project is licensed under the [MIT License](LICENSE). Feel free to use and 
 ## Acknowledgements 🙌
 
 - [Open Source License](https://opensource.org/licenses/MIT) 📝
-- [Iconfinder](https://www.iconfinder.com/) for the awesome sun and moon icons ☀️🌙
+- [Feather Icons](https://feathericons.com/) for the awesome sun and moon icons ☀️🌙
 
 ## Got a Joke? 😄
 
 Why did the computer go to art school? 🎨
-
 Because it wanted to become a graphic designer! 😄🖥️
 
 Why don't scientists trust atoms? ⚛️
-
 Because they make up everything! 🤣
 
 Have fun memeing and enjoy spreading laughter with Memer! 😄🎉🚀
