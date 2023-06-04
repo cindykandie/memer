@@ -34,26 +34,31 @@ modal.addEventListener('click', () => {
 function downloadModalImage() {
     const canvas = document.createElement('canvas');
     const modalContent = document.querySelector('.modal-content');
-
+    const isLightTheme = document.body.classList.contains('light-theme');
+    const backgroundColor = isLightTheme ? '#ffffff' : '#000000';
+    const textColor = isLightTheme ? '#000000' : '#ffffff';
+    const maxWidth = '500px';
+  
     canvas.width = modalContent.offsetWidth;
     canvas.height = modalContent.offsetHeight;
-
+  
     const context = canvas.getContext('2d');
-    context.fillStyle = '#000000';
+    context.fillStyle = backgroundColor;
     context.fillRect(0, 0, canvas.width, canvas.height);
-
+  
     const modalText = document.getElementById('modalText');
     const text = modalText.textContent;
     context.font = '24px Arial';
-    context.fillStyle = '#ffffff';
+    context.fillStyle = textColor;
     context.textAlign = 'center';
     context.fillText(text, canvas.width / 2, canvas.height / 2);
-
+  
     const link = document.createElement('a');
     link.download = 'modal.png';
     link.href = canvas.toDataURL();
     link.click();
-}
+  }
+  
 
 const yearElement = document.getElementById("year");
 const currentYear = new Date().getFullYear();
