@@ -54,7 +54,7 @@ function downloadModalImage() {
     context.fillText(text, canvas.width / 2, canvas.height / 2);
   
     const link = document.createElement('a');
-    link.download = 'modal.png';
+    link.download = 'meme.png';
     link.href = canvas.toDataURL();
     link.click();
   }
