@@ -38,6 +38,7 @@ function downloadModalImage() {
     const backgroundColor = isLightTheme ? '#ffffff' : '#000000';
     const textColor = isLightTheme ? '#000000' : '#ffffff';
     const maxWidth = 500; // Maximum width in pixels
+    const padding = 20; // Padding in pixels
     
     canvas.width = modalContent.offsetWidth;
     canvas.height = modalContent.offsetHeight;
@@ -63,7 +64,7 @@ function downloadModalImage() {
       const metrics = context.measureText(testLine);
       const lineWidth = metrics.width;
       
-      if (lineWidth > maxWidth && i > 0) {
+      if (lineWidth > maxWidth - 2 * padding && i > 0) {
         lines.push(line);
         line = words[i] + ' ';
       } else {
@@ -84,7 +85,8 @@ function downloadModalImage() {
     link.download = 'meme.png';
     link.href = canvas.toDataURL();
     link.click();
-  }  
+  }
+  
   
 
 const yearElement = document.getElementById("year");
