@@ -37,27 +37,54 @@ function downloadModalImage() {
     const isLightTheme = document.body.classList.contains('light-theme');
     const backgroundColor = isLightTheme ? '#ffffff' : '#000000';
     const textColor = isLightTheme ? '#000000' : '#ffffff';
-    const maxWidth = '500px';
-  
+    const maxWidth = 500; // Maximum width in pixels
+    
     canvas.width = modalContent.offsetWidth;
     canvas.height = modalContent.offsetHeight;
-  
+    
     const context = canvas.getContext('2d');
     context.fillStyle = backgroundColor;
     context.fillRect(0, 0, canvas.width, canvas.height);
-  
+    
     const modalText = document.getElementById('modalText');
     const text = modalText.textContent;
-    context.font = '24px Arial';
+    const fontSize = 24;
+    const lineHeight = 1.2;
+    const words = text.split(' ');
+    let line = '';
+    let lines = [];
+    
+    context.font = `${fontSize}px Arial`;
     context.fillStyle = textColor;
     context.textAlign = 'center';
-    context.fillText(text, canvas.width / 2, canvas.height / 2);
-  
+    
+    for (let i = 0; i < words.length; i++) {
+      const testLine = line + words[i] + ' ';
+      const metrics = context.measureText(testLine);
+      const lineWidth = metrics.width;
+      
+      if (lineWidth > maxWidth && i > 0) {
+        lines.push(line);
+        line = words[i] + ' ';
+      } else {
+        line = testLine;
+      }
+    }
+    
+    lines.push(line);
+    
+    const startY = (canvas.height - lines.length * fontSize * lineHeight) / 2;
+    
+    for (let i = 0; i < lines.length; i++) {
+      const lineY = startY + (i * fontSize * lineHeight);
+      context.fillText(lines[i], canvas.width / 2, lineY);
+    }
+    
     const link = document.createElement('a');
     link.download = 'meme.png';
     link.href = canvas.toDataURL();
     link.click();
-  }
+  }  
   
 
 const yearElement = document.getElementById("year");
