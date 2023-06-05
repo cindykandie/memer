@@ -37,7 +37,7 @@ function downloadModalImage() {
     const isLightTheme = document.body.classList.contains('light-theme');
     const backgroundColor = isLightTheme ? '#ffffff' : '#000000';
     const textColor = isLightTheme ? '#000000' : '#ffffff';
-    const maxWidth = 250; // Maximum width in pixels
+    const maxWidth = 270 // Maximum width in pixels
     const maxHeight = 500; // Maximum height in pixels
     const padding = 20; // Padding in pixels
   
