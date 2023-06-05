@@ -37,7 +37,7 @@ function downloadModalImage() {
     const isLightTheme = document.body.classList.contains('light-theme');
     const backgroundColor = isLightTheme ? '#ffffff' : '#000000';
     const textColor = isLightTheme ? '#000000' : '#ffffff';
-    const maxWidth = 500; // Maximum width in pixels
+    const maxWidth = 300; // Maximum width in pixels
     const padding = 20; // Padding in pixels
     
     canvas.width = modalContent.offsetWidth;
