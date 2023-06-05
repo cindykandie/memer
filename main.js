@@ -53,7 +53,6 @@ function downloadModalImage() {
     let fontSize = 24;
     const lineHeight = 1.2;
     const words = text.split(' ');
-    let line = '';
     let lines = [];
   
     context.fillStyle = textColor;
@@ -61,6 +60,9 @@ function downloadModalImage() {
   
     while (fontSize > 0) {
       context.font = `${fontSize}px Arial`;
+  
+      let line = '';
+      lines = [];
   
       for (let i = 0; i < words.length; i++) {
         const testLine = line + words[i] + ' ';
@@ -78,11 +80,12 @@ function downloadModalImage() {
       lines.push(line);
   
       const textHeight = lines.length * fontSize * lineHeight;
-      if (textHeight <= maxHeight - 2 * padding) {
+      const textWidth = Math.max(...lines.map(line => context.measureText(line).width));
+  
+      if (textHeight <= maxHeight - 2 * padding && textWidth <= maxWidth - 2 * padding) {
         break;
       }
   
-      lines = [];
       fontSize--;
     }
   
