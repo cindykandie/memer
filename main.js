@@ -37,55 +37,68 @@ function downloadModalImage() {
     const isLightTheme = document.body.classList.contains('light-theme');
     const backgroundColor = isLightTheme ? '#ffffff' : '#000000';
     const textColor = isLightTheme ? '#000000' : '#ffffff';
-    const maxWidth = 300; // Maximum width in pixels
+    const maxWidth = 500; // Maximum width in pixels
+    const maxHeight = 500; // Maximum height in pixels
     const padding = 20; // Padding in pixels
-    
+  
     canvas.width = modalContent.offsetWidth;
     canvas.height = modalContent.offsetHeight;
-    
+  
     const context = canvas.getContext('2d');
     context.fillStyle = backgroundColor;
     context.fillRect(0, 0, canvas.width, canvas.height);
-    
+  
     const modalText = document.getElementById('modalText');
     const text = modalText.textContent;
-    const fontSize = 24;
+    let fontSize = 24;
     const lineHeight = 1.2;
     const words = text.split(' ');
     let line = '';
     let lines = [];
-    
-    context.font = `${fontSize}px Arial`;
+  
     context.fillStyle = textColor;
     context.textAlign = 'center';
-    
-    for (let i = 0; i < words.length; i++) {
-      const testLine = line + words[i] + ' ';
-      const metrics = context.measureText(testLine);
-      const lineWidth = metrics.width;
-      
-      if (lineWidth > maxWidth - 2 * padding && i > 0) {
-        lines.push(line);
-        line = words[i] + ' ';
-      } else {
-        line = testLine;
+  
+    while (fontSize > 0) {
+      context.font = `${fontSize}px Arial`;
+  
+      for (let i = 0; i < words.length; i++) {
+        const testLine = line + words[i] + ' ';
+        const metrics = context.measureText(testLine);
+        const lineWidth = metrics.width;
+  
+        if (lineWidth > maxWidth - 2 * padding && i > 0) {
+          lines.push(line);
+          line = words[i] + ' ';
+        } else {
+          line = testLine;
+        }
       }
+  
+      lines.push(line);
+  
+      const textHeight = lines.length * fontSize * lineHeight;
+      if (textHeight <= maxHeight - 2 * padding) {
+        break;
+      }
+  
+      lines = [];
+      fontSize--;
     }
-    
-    lines.push(line);
-    
+  
     const startY = (canvas.height - lines.length * fontSize * lineHeight) / 2;
-    
+  
     for (let i = 0; i < lines.length; i++) {
       const lineY = startY + (i * fontSize * lineHeight);
       context.fillText(lines[i], canvas.width / 2, lineY);
     }
-    
+  
     const link = document.createElement('a');
     link.download = 'meme.png';
     link.href = canvas.toDataURL();
     link.click();
   }
+  
   
   
 
